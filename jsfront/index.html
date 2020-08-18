@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <div class="jumbotron text-center">
+
+        <h1>MyHealth</h1>
+        <p>Your health information, with you in mind</p>
+      </div>
+
+<div id="landing">
+<center> 
+      <p id="login-buttons">
+        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseLogin" aria-expanded="false" aria-controls="collapseLogin">
+          Login
+        </button>
+        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">
+          Sign Up
+        </button>
+        <br>
+        <p id="login-error"></p>
+      </p>
+      <div class="collapse" id="collapseLogin">
+        <div class="card card-body">
+          <form id="login-form">
+            <div class="form-row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <button type="submit" class="btn btn-dark" id="login">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br>
+
+      <div class="collapse" id="collapseSignUp">
+        <div class="card card-body">
+          <form id="signup-form">
+            <div class="form-row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Confirm name">
+              </div>
+              <button type="submit" class="btn btn-dark" id="login">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+</div>
+  
+
+      <div class="add-appointment">
+        <center>  <h4>Add Appointment:</h4>
+        <form id="form" action="">
+
+            <label for="fdate">Date:</label> 
+            <input type="date" id="fdate" name="fdate" value="">
+            
+            <label for="fprovider">Provider:</label>
+            <input type="text" id="fprovider" name="fprovider" value="">
+            
+            
+              <label for="fnote">Note:</label>
+            <input type="text" id="fnote" name="fnote" value=""><br>
+            
+            <input type="submit" value="Submit">
+            
+          </form> </center><br><br>
+
+      </div>
+
+
+
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Extra Column</h4>
+            <p id="providers-list">Lorem ipsum dolor...</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Upcoming Appointments</h4>
+            <p id="appointment-list">Date | Provider</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Appointment Details</h4>
+            <p="appointment-notes">Datetime | Hospital | Note</p>
+          </div>
+          
+        </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+
+    <script src="src/index.js"></script>
+
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+
+
+</html>
