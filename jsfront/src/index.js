@@ -24,16 +24,11 @@ const login = () => {
                     foundUser = user 
                     return_value = true
                     landingDiv.innerText = `Login successful, welcome ${user.name}.`
-                    findAppointments(user) // finds matching appts with user 
+
+                    findAppointments(foundUser) // finds matching appts with user 
                     
-                    let form = document.getElementById('form')
-                    form.addEventListener('submit', (e) => {
-                         e.preventDefault()
-                         addAppointment(e, user)
-                        
-                        })
-                    }
-                })
+                }
+            })
             if (!foundUser) {
                 let error = document.getElementById('login-error')
                 error.innerText = "" 
@@ -46,6 +41,12 @@ const login = () => {
 
                 // landingDiv.style.display = "none"
                 // renderHomePage(foundUser)
+
+                let form = document.getElementById('form')
+                form.addEventListener('submit', (e) => {
+                     e.preventDefault()
+                     addAppointment(e, foundUser)
+                })
             }
         })
 
@@ -107,22 +108,42 @@ const findAppointments = (user) => {
 }
 
 const renderAppointments = (json, user) => {
-    // debugger
-    let div = document.getElementById('upcoming-appointments')
+
+    let div = document.getElementById('appointment-list')
     let appointment = document.createElement('ul')
     appointment.id = json.id
     appointment.innerHTML = `${json.date} with Provider ${json.provider_id}` 
     div.appendChild(appointment)
+    appointment.addEventListener('click', (e) => getAppointmentDetails(e, json, user))
 
+    // let editAppointmentButton = document.createElement('button') 
+    // editAppointmentButton.className='edit-appointment-button'
+    // // editAppointmentButton.id = `${json.id}`
+    // editAppointmentButton.innerHTML = 'Edit'
+    // appointment.appendChild('editAppointmentButton')
+
+    // editAppointmentButton.addEventListener('click', (e) => console.log(e))
+
+     //error = index.js:121 Uncaught (in promise) TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.
+    // at renderAppointments (index.js:121)
+    // at index.js:101
+}
+
+const getAppointmentDetails = (e, json, user) => {
+    console.log(json)
+    let div = document.getElementById('appointment-details')
+
+    //add details to div 
+    let appointmentDetails = document.createElement('ul')
+    appointmentDetails.id = json.id 
+    appointmentDetails.innerHTML = `Appointment on ${json.date} with Provider ${json.provider_id} <br> note: ${json.note}`
+    div.appendChild(appointmentDetails)
+
+    //add edit button to appointmentDetails 
     let editAppointmentButton = document.createElement('button') 
-    editAppointmentButton.className='edit-appointment-button'
-    editAppointmentButton.id = `${json.id}`
-    editAppointmentButton.innerHTML = 'Edit'
-    appointment.appendChild('editAppointmentButton')
-
-
-    editAppointmentButton.addEventListener('click', (e) => console.log(e))
-
+    editAppointmentButton.id = `{json.id}` 
+    editAppointmentButton.innerHTML = 'Edit' 
+    appointmentDetails.appendChild(editAppointmentButton) 
 }
 
 
@@ -144,8 +165,7 @@ const addAppointment = (e, user) => {
     body: JSON.stringify(data)
     })
     .then(res => res.json())
-
-    // .then(res => console.log(res))
+    .then(appt => console.log(appt))
 }
 
 
