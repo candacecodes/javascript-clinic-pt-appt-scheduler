@@ -1,4 +1,7 @@
 class AppointmentsController < ApplicationController
+
+    # require_relative '../services/appointment_serializer.rb'
+
     def index 
         @appointments = Appointment.all 
         render json: @appointments 
@@ -10,8 +13,10 @@ class AppointmentsController < ApplicationController
     end 
 
     def create 
-        appointment = Appointment.new(name: params["date", "note", "provider_id", "user_id"])
+        appointment = Appointment.new(date: params["date"], note: params["note"], provider_id: params["provider_id"], user_id: params["user_id"])
         appointment.save 
-        render json: @appointment 
+
     end 
+
 end
+
