@@ -26,6 +26,7 @@ const login = () => {
                     landingDiv.innerText = `Login successful, welcome ${user.name}.`
 
                     findAppointments(foundUser) // finds matching appts with user 
+                    findProviders() // finds matching provider with
                     
                 }
             })
@@ -116,27 +117,19 @@ const renderAppointments = (json, user) => {
     div.appendChild(appointment)
     appointment.addEventListener('click', (e) => getAppointmentDetails(e, json, user))
 
-    // let editAppointmentButton = document.createElement('button') 
-    // editAppointmentButton.className='edit-appointment-button'
-    // // editAppointmentButton.id = `${json.id}`
-    // editAppointmentButton.innerHTML = 'Edit'
-    // appointment.appendChild('editAppointmentButton')
-
-    // editAppointmentButton.addEventListener('click', (e) => console.log(e))
-
-     //error = index.js:121 Uncaught (in promise) TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.
-    // at renderAppointments (index.js:121)
-    // at index.js:101
 }
 
+// output appointment details 
+// added edit button to appointment 
 const getAppointmentDetails = (e, json, user) => {
     console.log(json)
     let div = document.getElementById('appointment-details')
+    div.innerHTML = `<h4>Appointment Details</h4>`
 
     //add details to div 
     let appointmentDetails = document.createElement('ul')
     appointmentDetails.id = json.id 
-    appointmentDetails.innerHTML = `Appointment on ${json.date} with Provider ${json.provider_id} <br> note: ${json.note}`
+    appointmentDetails.innerHTML = `Appointment on ${json.date} with Provider ${json.provider_id} <br> note: ${json.note} `
     div.appendChild(appointmentDetails)
 
     //add edit button to appointmentDetails 
@@ -146,7 +139,7 @@ const getAppointmentDetails = (e, json, user) => {
     appointmentDetails.appendChild(editAppointmentButton) 
 }
 
-
+// add appointment function 
 const addAppointment = (e, user) => {
     let data = {
         date: e.target[0].value,
@@ -165,27 +158,23 @@ const addAppointment = (e, user) => {
     body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(appt => console.log(appt))
+    .then(appt => renderAppointments(appt))
 }
 
+//find matching providers 
 
+const findProviders = () => {
+    fetch(`http://localhost:3000/providers`)
+    .then(res => res.json()) 
+    .then(json => json.forEach(provider => renderProvider(provider)))
+} 
 
-//     fetch(`http://localhost:3000/appointments`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-    
-//         }, 
-//         body: JSON.stringify(data)
-//     })
+//json => json.forEach(provider => renderProvider(provider))
 
-    // .then(res => res.json())
-    // .then (res => {
-    //     let appointmentList = document.getElementById('appointment-list')
-    //     let addedAppointment = document.createElement('ul')
-    //     // addedAppointment.innerText = `${e.target[0].value}`
-    //     // addedAppointment.id = `${appointment.id}`
-    //     // appointmentList.appendChild(addedAppointment)
-    // })
-
-// }
+const renderProvider = (provider) => {
+    let list = document.getElementById('providers-list')
+    let providerInfo = document.createElement('ul') 
+    providerInfo.id = provider.id 
+    providerInfo.innerHTML = `${provider.name} at ${provider.hospital}`
+    list.appendChild(providerInfo)
+}
