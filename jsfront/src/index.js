@@ -48,6 +48,7 @@ const login = () => {
                      e.preventDefault()
                      addAppointment(e, foundUser)
                 })
+
             }
         })
 
@@ -159,7 +160,10 @@ const editAppointment = (e, json, user) => {
     let fprovider = document.getElementById('fprovider')
     let fnote = document.getElementById('fnote')
     let editAppointmentText = document.getElementById('add-appointment-sign')
-    let button = document.getElementById('submit')
+    let submitButton = document.getElementById('submit')
+
+    // add in a cancel edit button
+    let cancelButton = document.createElement('button')
 
     fdate.value = `${json.date}`
     fprovider.value = `${json.provider_id}`
@@ -168,11 +172,14 @@ const editAppointment = (e, json, user) => {
     editAppointmentText.innerHTML = ''
     editAppointmentText.innerHTML = 'Edit Appointment'
 
+    cancelButton.innerHTML = 'Cancel Changes'
+    fdate.appendChild(cancelButton)
+
     //attempt to change submit button text to Submit Changes 
     // button.innerHTML = ''
     // button.innerHTML = 'Submit Changes'
 
-    button.addEventListener('submit', (e) => {
+    submitButton.addEventListener('submit', (e) => {
         e.preventDefault() 
         editAppointmentFunction(e, json, user)
     } 
@@ -239,6 +246,8 @@ const addAppointment = (e, user) => {
     })
     .then(res => res.json())
     .then(appt => renderAppointments(appt))
+
+    resetForm()
 }
 
 //find matching providers 
@@ -257,4 +266,19 @@ const renderProvider = (provider) => {
     // providerInfo.id = provider.id 
     providerInfo.innerHTML = `${provider.name} at ${provider.hospital}`
     list.appendChild(providerInfo)
+}
+
+const resetForm = () => {
+    let fdate = document.getElementById('form')
+    let fprovider = document.getElementById('fprovider')
+    let fnote = document.getElementById('fnote')
+    let headerText = document.getElementById('add-appointment-sign')
+    let button = document.getElementById('submit')
+
+    fdate.value = ''
+    fprovider.value = ''
+    fnote.value = ''
+
+    headerText.innerHTML = ''
+    headerText.innerHTML = 'Add Appointment'
 }
