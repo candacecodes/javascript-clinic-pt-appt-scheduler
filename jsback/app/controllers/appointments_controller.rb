@@ -16,8 +16,13 @@ class AppointmentsController < ApplicationController
         appointment = Appointment.new(date: params["date"], note: params["note"], provider_id: params["provider_id"], user_id: params["user_id"])
         appointment.save 
         render json: appointment #sends appt to front end 
-
     end 
+
+    def update
+        appointment = Appointment.find_by(id: params[:id])
+        appointment.update(date: params["date"], note: params["note"], provider_id: params["provider_id"], user_id: params["user_id"])
+        render json: appointment 
+    end
 
     def destroy
         appointment = Appointment.find_by(id: params[:id])

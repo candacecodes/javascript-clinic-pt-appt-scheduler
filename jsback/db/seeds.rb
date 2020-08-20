@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-provider1 = Provider.create(name: 'provider1', hospital: 'hospital1')
-provider2 = Provider.create(name: 'provider2', hospital: 'hospital2')
-provider3 = Provider.create(name: 'provider3', hospital: 'hospital3')
-provider4 = Provider.create(name: 'provider4', hospital: 'hospital4')
-provider5 = Provider.create(name: 'provider5', hospital: 'hospital5')
+provider1 = Provider.create(name: 'Dr. Seuss', hospital: 'Mayo Clinic')
+provider2 = Provider.create(name: 'Dr. Hippocrates', hospital: 'UCSF')
+provider3 = Provider.create(name: 'Dr. Pi', hospital: 'Johns Hopkins')
+provider4 = Provider.create(name: 'Dr. Jenner', hospital: 'Cleveland Clinic')
+provider5 = Provider.create(name: 'Dr. Fleming', hospital: 'UCLA Medical Center')
 
 user1 = User.create(name: 'user1')
 

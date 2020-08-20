@@ -115,7 +115,7 @@ const renderAppointments = (json, user) => {
     let div = document.getElementById('appointment-list')
     let appointment = document.createElement('ul')
     appointment.id = json.id
-    appointment.innerHTML = `${json.date} with Provider ${json.provider_id}` 
+    appointment.innerHTML = `${json.date}` 
     div.appendChild(appointment)
     appointment.addEventListener('click', (e) => getAppointmentDetails(e, json, user))
 
@@ -183,34 +183,40 @@ const editAppointment = (e, json, user) => {
     // button.innerHTML = ''
     // button.innerHTML = 'Submit Changes'
 
-    submitButton.addEventListener('submit', (e) => {
+
+    // <-------- issue is that when I click submit, ----------> 
+    //for code below form.addEventListener 
+    // it creates a new appointment rather than edit the corresponding one. 
+
+
+    form.addEventListener('submit', (e) => {
         e.preventDefault() 
         editAppointmentFunction(e, json, user)
         // resetForm()
-    } 
+    })
 
-
-)} 
+} 
 
 const editAppointmentFunction = (e, json, user) => {
     let data = {
         date: e.target[0].value,
-        note: e.target[2].value,
         provider_id: e.target[1].value,
+        note: e.target[2].value,
         user_id: user.id
     }
 
-    fetch(`http://localhost:3000/appointments`, {
+    fetch(`http://localhost:3000/appointments/${json.id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
-
+            'Accept': 'application/json'
         },
 
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(appt => renderAppointments(appt))
+    .then(res => console.log(res))
+    // .then(appt => renderAppointments(appt))
 }
 
 
@@ -226,7 +232,7 @@ const deleteAppointment = (e, json, user) => {
 
     let div = document.getElementById('appointment-details')
     div.innerHTML = `<h4>Appointment Details</h4>
-    <br> No details to share.`
+    <br> Appointment deleted.`
 } 
 
 
