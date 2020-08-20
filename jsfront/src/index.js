@@ -129,7 +129,7 @@ const getAppointmentDetails = (e, json, user) => {
     //add details to div 
     let appointmentDetails = document.createElement('ul')
     appointmentDetails.id = json.id 
-    appointmentDetails.innerHTML = `Appointment on ${json.date} with Provider ${json.provider_id} <br> note: ${json.note} `
+    appointmentDetails.innerHTML = `Appointment on ${json.date} with Provider ${json.provider_id} <br> Note: ${json.note} `
     div.appendChild(appointmentDetails)
 
     //add edit button to appointmentDetails 
@@ -137,6 +137,9 @@ const getAppointmentDetails = (e, json, user) => {
     editAppointmentButton.id = `{json.id}` 
     editAppointmentButton.innerHTML = 'Edit' 
     appointmentDetails.appendChild(editAppointmentButton) 
+
+    //add edit button event listener 
+    editAppointmentButton.addEventListener('click', (e) => editAppointment(e, json, user))
 
     //add delete button to appointmentDetails 
     let deleteAppointmentButton = document.createElement('button') 
@@ -147,14 +150,55 @@ const getAppointmentDetails = (e, json, user) => {
     //delete button event listener 
     deleteAppointmentButton.addEventListener('click', (e) => deleteAppointment(e, json, user)) 
 
-    //     fetch(`http://localhost:3000/appointments/${json.id}`, {
-    //         method: 'DELETE'
-    //     })
-    //     .then(res => res.json())
-    //     .then(json => console.log(json))
-//     })
-
 }
+
+const editAppointment = (e, json, user) => {
+    console.log(json)
+    let fdate = document.getElementById('form')
+    let fprovider = document.getElementById('fprovider')
+    let fnote = document.getElementById('fnote')
+    let editAppointmentText = document.getElementById('add-appointment-sign')
+    let button = document.getElementById('submit')
+
+    fdate.value = `${json.date}`
+    fprovider.value = `${json.provider_id}`
+    fnote.value = `${json.note}`
+
+    editAppointmentText.innerHTML = ''
+    editAppointmentText.innerHTML = 'Edit Appointment'
+
+    //attempt to change submit button text to Submit Changes 
+    // button.innerHTML = ''
+    // button.innerHTML = 'Submit Changes'
+
+    button.addEventListener('click', (e) => testLog(e, json, user))
+}
+
+const testLog = (e, json, user) => {
+    debugger
+    console.log(json)
+}
+
+// const addAppointment = (e, user) => {
+//     let data = {
+//         date: e.target[0].value,
+//         note: e.target[2].value,
+//         provider_id: e.target[1].value,
+//         user_id: user.id
+//     }
+
+//     fetch(`http://localhost:3000/appointments`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
+//         },
+
+//     body: JSON.stringify(data)
+//     })
+//     .then(res => res.json())
+//     .then(appt => renderAppointments(appt))
+// }
 
 const deleteAppointment = (e, json, user) => {
     fetch(`http://localhost:3000/appointments/${json.id}`, {
