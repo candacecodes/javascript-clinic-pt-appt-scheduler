@@ -54,7 +54,7 @@ const login = () => {
     })
 
 
-//Sign up 
+    //Sign up 
     let signupForm = document.getElementById("signup-form")
     signupForm.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -75,9 +75,10 @@ const login = () => {
             .then(json => {
 
                 let landingDiv = document.getElementById("landing")
-                landingDiv.innerText = `Sign up successful, welcome ${name}.`
+                landingDiv.innerText = `Sign up successful, welcome ${e.target[0].value}, please login.`
                 return_value = true
             })
+
         }
         else {
             let error = document.getElementById("login-error")
@@ -171,34 +172,35 @@ const editAppointment = (e, json, user) => {
     // button.innerHTML = ''
     // button.innerHTML = 'Submit Changes'
 
-    button.addEventListener('click', (e) => testLog(e, json, user))
+    button.addEventListener('submit', (e) => {
+        e.preventDefault() 
+        editAppointmentFunction(e, json, user)
+    } 
+
+
+)} 
+
+const editAppointmentFunction = (e, json, user) => {
+    let data = {
+        date: e.target[0].value,
+        note: e.target[2].value,
+        provider_id: e.target[1].value,
+        user_id: user.id
+    }
+
+    fetch(`http://localhost:3000/appointments`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(appt => renderAppointments(appt))
 }
 
-const testLog = (e, json, user) => {
-    debugger
-    console.log(json)
-}
-
-// const addAppointment = (e, user) => {
-//     let data = {
-//         date: e.target[0].value,
-//         note: e.target[2].value,
-//         provider_id: e.target[1].value,
-//         user_id: user.id
-//     }
-
-//     fetch(`http://localhost:3000/appointments`, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json'
-//         },
-
-//     body: JSON.stringify(data)
-//     })
-//     .then(res => res.json())
-//     .then(appt => renderAppointments(appt))
-// }
 
 const deleteAppointment = (e, json, user) => {
     fetch(`http://localhost:3000/appointments/${json.id}`, {
