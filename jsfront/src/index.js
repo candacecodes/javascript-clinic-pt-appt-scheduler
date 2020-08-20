@@ -137,9 +137,43 @@ const getAppointmentDetails = (e, json, user) => {
     editAppointmentButton.id = `{json.id}` 
     editAppointmentButton.innerHTML = 'Edit' 
     appointmentDetails.appendChild(editAppointmentButton) 
+
+    //add delete button to appointmentDetails 
+    let deleteAppointmentButton = document.createElement('button') 
+    deleteAppointmentButton.id = `{json.id}` 
+    deleteAppointmentButton.innerHTML = 'Delete' 
+    appointmentDetails.appendChild(deleteAppointmentButton) 
+
+    //delete button event listener 
+    deleteAppointmentButton.addEventListener('click', (e) => deleteAppointment(e, json, user)) 
+
+    //     fetch(`http://localhost:3000/appointments/${json.id}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(res => res.json())
+    //     .then(json => console.log(json))
+//     })
+
 }
 
+const deleteAppointment = (e, json, user) => {
+    fetch(`http://localhost:3000/appointments/${json.id}`, {
+        method: 'DELETE'
+    })
+    .then(res => {
+        let deleteThisAppointment = document.getElementById(`${json.id}`)
+        deleteThisAppointment.remove() 
+            
+    })
+
+    let div = document.getElementById('appointment-details')
+    div.innerHTML = `<h4>Appointment Details</h4>
+    <br> No details to share.`
+} 
+
+
 // add appointment function 
+
 const addAppointment = (e, user) => {
     let data = {
         date: e.target[0].value,
@@ -174,7 +208,7 @@ const findProviders = () => {
 const renderProvider = (provider) => {
     let list = document.getElementById('providers-list')
     let providerInfo = document.createElement('ul') 
-    providerInfo.id = provider.id 
+    // providerInfo.id = provider.id 
     providerInfo.innerHTML = `${provider.name} at ${provider.hospital}`
     list.appendChild(providerInfo)
 }

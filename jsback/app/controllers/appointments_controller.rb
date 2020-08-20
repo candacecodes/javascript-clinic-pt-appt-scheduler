@@ -19,6 +19,13 @@ class AppointmentsController < ApplicationController
 
     end 
 
+    def destroy
+        appointment = Appointment.find_by(id: params[:id])
+        appointment.delete
+        render json: appointment 
+    end 
+
+
 end
 
 # note to self: @ is to to view variable in front end  
