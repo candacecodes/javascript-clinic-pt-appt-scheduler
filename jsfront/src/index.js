@@ -156,24 +156,21 @@ const getAppointmentDetails = (e, json, user) => {
 
 const editAppointment = (e, json, user) => {
     console.log(json)
-    let fdate = document.getElementById('form')
+    let form = document.getElementById('form')
+    let fdate = document.getElementById('fdate')
     let fprovider = document.getElementById('fprovider')
     let fnote = document.getElementById('fnote')
-    let editAppointmentText = document.getElementById('add-appointment-sign')
+    let editAppointmentHeader = document.getElementById('add-appointment-sign')
     let submitButton = document.getElementById('submit')
 
-    // add in a cancel edit button
-    let cancelButton = document.createElement('button')
 
     fdate.value = `${json.date}`
     fprovider.value = `${json.provider_id}`
     fnote.value = `${json.note}`
 
-    editAppointmentText.innerHTML = ''
-    editAppointmentText.innerHTML = 'Edit Appointment'
+    editAppointmentHeader.innerHTML = ''
+    editAppointmentHeader.innerHTML = 'Edit Appointment'
 
-    cancelButton.innerHTML = 'Cancel Changes'
-    fdate.appendChild(cancelButton)
 
     //attempt to change submit button text to Submit Changes 
     // button.innerHTML = ''
@@ -182,6 +179,7 @@ const editAppointment = (e, json, user) => {
     submitButton.addEventListener('submit', (e) => {
         e.preventDefault() 
         editAppointmentFunction(e, json, user)
+        resetForm()
     } 
 
 
