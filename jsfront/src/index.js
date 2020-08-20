@@ -179,7 +179,7 @@ const editAppointment = (e, json, user) => {
     submitButton.addEventListener('submit', (e) => {
         e.preventDefault() 
         editAppointmentFunction(e, json, user)
-        resetForm()
+        // resetForm()
     } 
 
 
@@ -267,11 +267,12 @@ const renderProvider = (provider) => {
 }
 
 const resetForm = () => {
-    let fdate = document.getElementById('form')
-    let fprovider = document.getElementById('fprovider')
-    let fnote = document.getElementById('fnote')
-    let headerText = document.getElementById('add-appointment-sign')
-    let button = document.getElementById('submit')
+    const form = document.getElementById('form')
+    const fdate = document.getElementById('fdate')
+    const fprovider = document.getElementById('fprovider')
+    const fnote = document.getElementById('fnote')
+    const headerText = document.getElementById('add-appointment-sign')
+    const button = document.getElementById('submit')
 
     fdate.value = ''
     fprovider.value = ''
