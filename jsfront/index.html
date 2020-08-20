@@ -9,10 +9,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     </head>
     <body>
+
+      <button type="button" class="btn btn-primary disabled btn-lg btn-block">
+        It’s a good day to have a good day.
+      </button>
+
+
+      
     <div class="jumbotron text-center">
 
         <h1>MyHealth</h1>
-        <p>Your health information, with you in mind</p>
+        <p>Your Health Information with You in Mind</p>
       </div>
 
       <center> <div id="landing">
@@ -90,18 +97,20 @@
 
       <div class="container">
         <div class="row">
+
           <div class="col-sm-4">
             <h4>Your Providers</h4>
             <p id="providers-list"></p>
           </div>
-          <div id="upcoming-appointments">
-            <h4>Upcoming Appointments</h4>
+
+          <div class="col-sm-4" id="upcoming-appointments">
+            <h4>Appointments</h4>
             <p id="appointment-list"></p>
           </div>
-          <div id="appointment-details">
+          <div class="col-sm-4" id="appointment-details">
             <h4>Appointment Details</h4>
-            <p id="appointment-notes">Datetime | Hospital | Note</p>
-            
+            <p id="appointment-notes">
+            </p>
           </div>
         </div>
       </div>

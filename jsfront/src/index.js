@@ -131,7 +131,14 @@ const getAppointmentDetails = (e, json, user) => {
     //add details to div 
     let appointmentDetails = document.createElement('ul')
     appointmentDetails.id = json.id 
-    appointmentDetails.innerHTML = `Appointment on ${json.date} with Provider ${json.provider_id} <br> Note: ${json.note} `
+    appointmentDetails.innerHTML = 
+    `Appointment Date: ${json.date}
+        <br>
+    Provider: ${json.provider_id}
+        <br>
+    Note: ${json.note}
+        <br><br>`
+    
     div.appendChild(appointmentDetails)
 
     //add edit button to appointmentDetails 
