@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', (e) => {
 
+
     let success = false 
     while (!success) {
         success = login() 
         return success
     }
 }) 
+
+let editAppointmentDetails 
 
 const login = () => { 
     let return_value = false 
@@ -45,8 +48,15 @@ const login = () => {
 
                 let form = document.getElementById('form')
                 form.addEventListener('submit', (e) => {
-                     e.preventDefault()
-                     addAppointment(e, foundUser)
+                    e.preventDefault()
+
+                    if (!editAppointmentDetails) {
+                        addAppointment(e, foundUser)
+                    } 
+                    else {
+                        editAppointmentFunction(e, editAppointmentDetails, foundUser)
+                    }
+                    
                 })
 
             }
@@ -163,6 +173,9 @@ const getAppointmentDetails = (e, json, user) => {
 
 const editAppointment = (e, json, user) => {
     console.log(json)
+
+    editAppointmentDetails = json 
+
     let form = document.getElementById('form')
     let fdate = document.getElementById('fdate')
     let fprovider = document.getElementById('fprovider')
@@ -189,11 +202,6 @@ const editAppointment = (e, json, user) => {
     // it creates a new appointment rather than edit the corresponding one. 
 
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault() 
-        editAppointmentFunction(e, json, user)
-        // resetForm()
-    })
 
 } 
 
@@ -216,7 +224,10 @@ const editAppointmentFunction = (e, json, user) => {
     })
     .then(res => res.json())
     .then(res => console.log(res))
-    // .then(appt => renderAppointments(appt))
+
+    resetForm() 
+    findAppointments(user)
+
 }
 
 
