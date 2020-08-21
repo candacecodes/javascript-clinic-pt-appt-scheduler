@@ -149,7 +149,7 @@ const getAppointmentDetails = (e, json, user) => {
     appointmentDetails.innerHTML = 
     `Appointment Date: ${json.date}
         <br>
-    Provider: ${json.provider_id}
+    Provider: ${json.provider}
         <br>
     Note: ${json.note}
         <br><br>`
