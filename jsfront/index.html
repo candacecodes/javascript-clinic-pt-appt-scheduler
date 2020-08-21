@@ -7,7 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    </head>
+
+
+  </head>
     <body>
 
       <button type="button" class="btn btn-primary disabled btn-lg btn-block">
@@ -74,6 +76,7 @@
 
 <br><br>
 
+
       <div class="add-appointment">
         <center>  <h4 id="add-appointment-sign">Add Appointment:</h4>
         <form id="form" action="">
@@ -87,15 +90,15 @@
               <label for="fnote">Note:</label>
             <input type="text" id="fnote" name="fnote" value=""><br>
             
-            <input id="submit" class="btn btn-secondary disabled" type="submit" value="Submit">
-            <!-- <input id="reset" type="reset" value="Reset"> -->
+            <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
+
             
             
           </form> </center><br><br>
 
         </div>
 
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
 
           <div class="col-sm-4">
@@ -113,7 +116,51 @@
             <p id="appointment-notes">
             </p>
           </div>
+        </div> -->
+
+
+        <div class="card border-primary mb-3" style="max-width: 20rem;" margin: 20px;>
+          <div class="card-header">Your Providers</div>
+          <div class="card-body">
+            <h4 class="card-title" id="provider-title">None to show</h4>
+            <p class="card-text" id="providers-list"></p>
+          </div>
         </div>
+    
+          <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-header">Appointments</div>
+          <div class="card-body">
+            <h4 class="card-title" id="appointment-title">None to show</h4>
+            <p class="card-text" id="appointment-list"></p>
+          </div>
+        </div>
+
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-header">Your Appointment Details</div>
+          <div class="card-body">
+            <h4 class="card-title" id="appointment-detail-title">None to show</h4>
+            <p class="card-text" id="appointment-details"></p>
+          </div>
+        </div>
+
+
+
+
+
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">
+            Cras justo odio
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in
+          </a>
+          <a href="#" class="list-group-item list-group-item-action disabled">Morbi leo risus
+          </a>
+        </div> 
+
+        
+
+
+
     </div>
 
     <!-- Optional JavaScript -->

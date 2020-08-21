@@ -123,6 +123,8 @@ const findAppointments = (user) => {
 const renderAppointments = (json, user) => {
 
     let div = document.getElementById('appointment-list')
+    let title = document.getElementById('appointment-title')
+    title.innerHTML = '' 
     let appointment = document.createElement('ul')
     appointment.id = json.id
     appointment.innerHTML = `${json.date}` 
@@ -136,11 +138,14 @@ const renderAppointments = (json, user) => {
 const getAppointmentDetails = (e, json, user) => {
     console.log(json)
     let div = document.getElementById('appointment-details')
-    div.innerHTML = `<h4>Appointment Details</h4>`
+    let title = document.getElementById('appointment-detail-title')
+    // div.innerHTML = `<h4>Appointment Details</h4>`
+    title.innerHTML = '' 
 
     //add details to div 
     let appointmentDetails = document.createElement('ul')
     appointmentDetails.id = json.id 
+    div.innerHTML = ''
     appointmentDetails.innerHTML = 
     `Appointment Date: ${json.date}
         <br>
@@ -284,6 +289,9 @@ const findProviders = () => {
 
 const renderProvider = (provider) => {
     let list = document.getElementById('providers-list')
+    let title = document.getElementById('provider-title')
+
+    title.innerHTML = '' 
     let providerInfo = document.createElement('ul') 
     // providerInfo.id = provider.id 
     providerInfo.innerHTML = `${provider.name} at ${provider.hospital}`
