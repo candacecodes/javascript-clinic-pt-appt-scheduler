@@ -156,13 +156,7 @@ const getAppointmentDetails = (e, json, user) => {
     
     div.appendChild(appointmentDetails)
 
-
-
     //testing 
-
-
-
-
 
 
     //add edit button to appointmentDetails 

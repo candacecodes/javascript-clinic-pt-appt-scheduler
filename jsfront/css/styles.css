@@ -6,6 +6,27 @@ body {
   padding-bottom: 20px;
 }
 
+/* Put Cards on Grid */
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 15rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px blue
+}
+
+#card_collection {
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));  
+  grid-auto-rows: auto;
+  position: relative;
+  display: grid;
+  grid-gap: 1rem;
+  margin: 2rem;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

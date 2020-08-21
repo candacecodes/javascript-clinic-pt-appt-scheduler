@@ -1,6 +1,6 @@
 class AppointmentSerializer
   # include FastJsonapi::ObjectSerializer
-#   # attributes :date, :note, :provider_id, :user_id
+  # attributes :date, :note, :provider_id, :user_id
 
 #   def initialize(appointment_object)
 #     @appointment = appointment_object 
