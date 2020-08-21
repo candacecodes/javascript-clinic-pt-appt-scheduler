@@ -156,6 +156,15 @@ const getAppointmentDetails = (e, json, user) => {
     
     div.appendChild(appointmentDetails)
 
+
+
+    //testing 
+
+
+
+
+
+
     //add edit button to appointmentDetails 
     let editAppointmentButton = document.createElement('button') 
     editAppointmentButton.id = `{json.id}` 
