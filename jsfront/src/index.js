@@ -151,7 +151,7 @@ const getAppointmentDetails = (e, json, user) => {
         <br>
     Provider: ${json.provider}
         <br>
-    Note: ${json.note}
+    <id="appointment-note">Note: ${json.note}
         <br><br>`
     
     div.appendChild(appointmentDetails)
@@ -231,10 +231,13 @@ const editAppointmentFunction = (e, json, user) => {
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(res => console.log(res))
+    .then(json => {
+        let note = document.getElementById('appointment-note')
+        note.innerHTML = `${json.note}`
+    })
 
     resetForm() 
-    findAppointments(user)
+    // findAppointments(user)
 
 }
 
