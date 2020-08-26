@@ -231,7 +231,7 @@ const editAppointmentFunction = (e, json, user) => {
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(json => updateAppointmentNote(json))
+    .then(json => updateAppointmentNote(json)) 
 
     resetForm() 
     // findAppointments(user)
@@ -254,8 +254,42 @@ const updateAppointmentNote = (json) => {
         <br><br>`
     
     div.appendChild(appointmentDetails)
-
 }
+
+// const reFindAppointments = (json) => {
+
+//     fetch(`http://localhost:3000/appointments`)
+//     .then(res => res.json())
+//     .then(json => {
+//         let render = false 
+//         json.forEach(appointment => {
+//             if (appointment.user_id == json.user_id) {
+//                 fetch(`http://localhost:3000/appointments/${appointment.id}`)
+//                 .then(res => res.json())
+//                 .then(json => {
+//                     console.log(json)
+//                     // reRenderAppointments(json) // puts appts onto appointment list 
+
+//                 })
+//             }
+//         })
+//     })
+// }
+
+// const reRenderAppointments = (json) => {
+//      console.log(json)
+//     // let div = document.getElementById('appointment-list')
+//     // let title = document.getElementById('appointment-title')
+//     // title.innerHTML = '' 
+//     // let appointment = document.createElement('ul')
+//     // appointment.id = json.id
+//     // appointment.innerHTML = `${json.date}` 
+//     // div.appendChild(appointment)
+//     // appointment.addEventListener('click', (e) => getAppointmentDetails(e, json, user))
+
+// }
+
+
 
 const deleteAppointment = (e, json, user) => {
     fetch(`http://localhost:3000/appointments/${json.id}`, {
