@@ -148,9 +148,9 @@ const getAppointmentDetails = (e, json, user) => {
     div.innerHTML = ''
     appointmentDetails.innerHTML = 
     `Appointment Date: ${json.date}
-        <br>
-    Provider: ${json.provider}
-        <br>
+    <br>
+    Provider: ${json.provider_id}
+    <br>
     <id="appointment-note">Note: ${json.note}
         <br><br>`
     
@@ -231,16 +231,31 @@ const editAppointmentFunction = (e, json, user) => {
         body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(json => {
-        let note = document.getElementById('appointment-note')
-        note.innerHTML = `${json.note}`
-    })
+    .then(json => updateAppointmentNote(json))
 
     resetForm() 
     // findAppointments(user)
-
 }
 
+const updateAppointmentNote = (json) => {
+    console.log(json)
+    let div = document.getElementById('appointment-details')
+    div.innerHTML = `<h4>Appointment Details</h4>`
+
+    let appointmentDetails = document.createElement('ul')
+    appointmentDetails.id = json.id 
+    div.innerHTML = ''
+    appointmentDetails.innerHTML = 
+    `Appointment Date: ${json.date}
+    <br>
+    Provider: ${json.provider_id}
+    <br>
+    <id="appointment-note">Note: ${json.note}
+        <br><br>`
+    
+    div.appendChild(appointmentDetails)
+
+}
 
 const deleteAppointment = (e, json, user) => {
     fetch(`http://localhost:3000/appointments/${json.id}`, {
