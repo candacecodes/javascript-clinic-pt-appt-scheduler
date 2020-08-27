@@ -5,7 +5,6 @@ body {
   background-color:white 
 }
 
-
 /* Put Cards on Grid */
 .card {
   text-align: center;
@@ -15,7 +14,7 @@ body {
   height: 20rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px lightblue
+  box-shadow: 2px 2px lightblue
 }
 
 /* Note: Add new id for login and update the height to auto */
