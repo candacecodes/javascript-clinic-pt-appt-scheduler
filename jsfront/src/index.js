@@ -127,7 +127,8 @@ const renderAppointments = (json, user) => {
 
     let div = document.getElementById('appointment-list')
     let title = document.getElementById('appointment-title')
-    let appointment = document.createElement('ul')
+    let appointment = document.createElement('li')
+    title.innerHTML = '' // way to style.display.none? 
     appointment.innerHTML = ''
     appointment.id = json.id
     appointment.innerHTML = `${json.date}` 
@@ -146,7 +147,7 @@ const getAppointmentDetails = (e, json, user) => {
     title.innerHTML = '' 
 
     //add details to div 
-    let appointmentDetails = document.createElement('ul')
+    let appointmentDetails = document.createElement('p')
     appointmentDetails.id = json.id 
     div.innerHTML = ''
     appointmentDetails.innerHTML = 
@@ -354,8 +355,8 @@ const renderProvider = (provider) => {
     let list = document.getElementById('providers-list')
     let title = document.getElementById('provider-title')
 
-    title.innerHTML = '' 
-    let providerInfo = document.createElement('ul') 
+    title.innerHTML = '' // way to style.display.none? 
+    let providerInfo = document.createElement('li') 
     // providerInfo.id = provider.id 
     providerInfo.innerHTML = `${provider.name} at ${provider.hospital}`
     list.appendChild(providerInfo)

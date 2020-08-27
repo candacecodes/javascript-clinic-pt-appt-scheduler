@@ -5,16 +5,33 @@ body {
   background-color:white 
 }
 
+ul {
+  list-style: none;
+}
+
+/* Note 
+*/
+
+
 /* Put Cards on Grid */
 .card {
-  text-align: center;
+  text-align: left;
   border: grey solid 1px;
   padding: 1rem;
   width: 15rem;
   height: 20rem;
   display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 2px 2px lightblue
+  margin: 2rem;
+  box-shadow: 2px 2px lightblue;
+}
+
+/* Allows section in card body to scroll */
+.card-body {
+  overflow: scroll;
+}
+
+.card-header {
+  height: 45%; 
 }
 
 /* Note: Add new id for login and update the height to auto */
