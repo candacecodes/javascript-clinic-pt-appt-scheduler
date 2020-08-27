@@ -1,9 +1,8 @@
-index.css
-
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color:white 
 }
 
 /* Put Cards on Grid */
@@ -15,7 +14,7 @@ body {
   height: 25rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px blue
+  box-shadow: 3px 4px lightblue
 }
 
 #card_collection {
