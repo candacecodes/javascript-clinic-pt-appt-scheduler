@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', (e) => {
 
-
     let success = false 
     while (!success) {
         success = login() 
@@ -9,6 +8,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 }) 
 
 let editAppointmentDetails 
+let user 
 
 const login = () => { 
     let return_value = false 
@@ -45,6 +45,7 @@ const login = () => {
 
                 // landingDiv.style.display = "none"
                 // renderHomePage(foundUser)
+                user = foundUser // used for a wider scope 
 
                 let form = document.getElementById('form')
                 form.addEventListener('submit', (e) => {
@@ -106,6 +107,8 @@ const findAppointments = (user) => {
     fetch(`http://localhost:3000/appointments`)
     .then(res => res.json())
     .then(json => {
+        let div = document.getElementById('appointment-list')
+        div.innerHTML = '' 
         let render = false 
         json.forEach(appointment => {
             if (appointment.user_id == user.id) {
@@ -124,8 +127,8 @@ const renderAppointments = (json, user) => {
 
     let div = document.getElementById('appointment-list')
     let title = document.getElementById('appointment-title')
-    title.innerHTML = '' 
     let appointment = document.createElement('ul')
+    appointment.innerHTML = ''
     appointment.id = json.id
     appointment.innerHTML = `${json.date}` 
     div.appendChild(appointment)
@@ -234,7 +237,7 @@ const editAppointmentFunction = (e, json, user) => {
     .then(json => updateAppointmentNote(json)) 
 
     resetForm() 
-    // findAppointments(user)
+    findAppointments(user)
 }
 
 const updateAppointmentNote = (json) => {
@@ -254,6 +257,7 @@ const updateAppointmentNote = (json) => {
         <br><br>`
     
     div.appendChild(appointmentDetails)
+
 }
 
 // const reFindAppointments = (json) => {
@@ -275,6 +279,10 @@ const updateAppointmentNote = (json) => {
 //         })
 //     })
 // }
+// possible solution: 
+// have an array/var at the beginning that keeps track of all appts
+// it'll update on the front end rather than fetching multiple times
+// another solution: refetch  
 
 // const reRenderAppointments = (json) => {
 //      console.log(json)
