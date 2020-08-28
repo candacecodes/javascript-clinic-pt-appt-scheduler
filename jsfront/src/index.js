@@ -151,17 +151,14 @@ const getAppointmentDetails = (e, json, user) => {
     appointmentDetails.id = json.id 
     div.innerHTML = ''
     appointmentDetails.innerHTML = 
-    `Appointment Date: ${json.date}
-    <br>
-    Provider: ${json.provider_id}
-    <br>
-    <id="appointment-note">Note: ${json.note}
-        <br><br>`
+            `Appointment Date: ${json.date}
+            <br>
+            Provider: ${json.provider_id}
+            <br>
+            <id="appointment-note">Note: ${json.note}
+            <br><br>`
     
     div.appendChild(appointmentDetails)
-
-    //testing 
-
 
     //add edit button to appointmentDetails 
     let editAppointmentButton = document.createElement('button') 
@@ -202,19 +199,6 @@ const editAppointment = (e, json, user) => {
 
     editAppointmentHeader.innerHTML = ''
     editAppointmentHeader.innerHTML = 'Edit Appointment'
-
-
-    //attempt to change submit button text to Submit Changes 
-    // button.innerHTML = ''
-    // button.innerHTML = 'Submit Changes'
-
-
-    // <-------- issue is that when I click submit, ----------> 
-    //for code below form.addEventListener 
-    // it creates a new appointment rather than edit the corresponding one. 
-
-
-
 } 
 
 const editAppointmentFunction = (e, json, user) => {
@@ -261,44 +245,10 @@ const updateAppointmentNote = (json) => {
 
 }
 
-// const reFindAppointments = (json) => {
-
-//     fetch(`http://localhost:3000/appointments`)
-//     .then(res => res.json())
-//     .then(json => {
-//         let render = false 
-//         json.forEach(appointment => {
-//             if (appointment.user_id == json.user_id) {
-//                 fetch(`http://localhost:3000/appointments/${appointment.id}`)
-//                 .then(res => res.json())
-//                 .then(json => {
-//                     console.log(json)
-//                     // reRenderAppointments(json) // puts appts onto appointment list 
-
-//                 })
-//             }
-//         })
-//     })
-// }
-// possible solution: 
+// possibilities for rerendering appt dates:
 // have an array/var at the beginning that keeps track of all appts
 // it'll update on the front end rather than fetching multiple times
 // another solution: refetch  
-
-// const reRenderAppointments = (json) => {
-//      console.log(json)
-//     // let div = document.getElementById('appointment-list')
-//     // let title = document.getElementById('appointment-title')
-//     // title.innerHTML = '' 
-//     // let appointment = document.createElement('ul')
-//     // appointment.id = json.id
-//     // appointment.innerHTML = `${json.date}` 
-//     // div.appendChild(appointment)
-//     // appointment.addEventListener('click', (e) => getAppointmentDetails(e, json, user))
-
-// }
-
-
 
 const deleteAppointment = (e, json, user) => {
     fetch(`http://localhost:3000/appointments/${json.id}`, {
@@ -377,3 +327,9 @@ const resetForm = () => {
     headerText.innerHTML = ''
     headerText.innerHTML = 'Add Appointment'
 }
+
+// when making fetch that grabs provider info, 
+// also grab the form => provider collection select
+// for each provider create an option tag that 
+// appends to the select tag 
+// append a select tag and iterate through providers
