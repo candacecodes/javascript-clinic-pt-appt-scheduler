@@ -82,20 +82,9 @@
             <input type="date" id="fdate" name="fdate" value="">
             
             <label for="fprovider">Provider:</label>
-            <input type="text" id="fprovider" name="fprovider" value="">
+            <select id="fprovider" name="fprovider" value=""> 
 
-            <!-- collection select template 
-            
-            <label for="cars">Choose a car:</label>
-            <select id="cars" name="carlist" form="carform">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select> -->
-
-
-              <label for="fnote">Note:</label>
+            <label for="fnote">Note:</label>
             <input type="text" id="fnote" name="fnote" value=""><br>
             
             <input id="submit" class="btn btn-primary disabled" type="submit" value="Submit">
@@ -105,26 +94,6 @@
           </form> </center><br><br>
 
         </div>
-
-      <!-- <div class="container">
-        <div class="row">
-
-          <div class="col-sm-4">
-            <h4>Your Providers</h4>
-            <p id="providers-list"></p>      
-
-          </div>
-
-          <div class="col-sm-4" id="upcoming-appointments">
-            <h4>Appointments</h4>
-            <p id="appointment-list"></p>
-          </div>
-          <div class="col-sm-4" id="appointment-details">
-            <h4>Appointment Details</h4>
-            <p id="appointment-notes">
-            </p>
-          </div>
-        </div> -->
 
       <div id = "card_collection">
         <div class="card border-primary mb-3" style="max-width: 20rem;" margin: 20px;> 
@@ -144,7 +113,7 @@
         </div>
 
         <div class="card border-primary mb-3" style="max-width: 20rem;">
-          <div class="card-header"><center>Your Appointment Details</center></div>
+          <div class="card-header"><center>Your Details</center></div>
           <div class="card-body">
             <h4 class="card-title" id="appointment-detail-title"><center>None to show</h4>
             <center><p class="card-text" id="appointment-details"></p></center>

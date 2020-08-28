@@ -299,7 +299,8 @@ const findProviders = () => {
     .then(json => json.forEach(provider => renderProvider(provider)))
 } 
 
-//json => json.forEach(provider => renderProvider(provider))
+//json => json.forEach(provider => renderProvider(provider)) 
+// => add as options to form to add appointment 
 
 const renderProvider = (provider) => {
     let list = document.getElementById('providers-list')
@@ -310,6 +311,16 @@ const renderProvider = (provider) => {
     // providerInfo.id = provider.id 
     providerInfo.innerHTML = `${provider.name} at ${provider.hospital}`
     list.appendChild(providerInfo)
+
+    collectionSelectProviders(provider)
+}
+
+const collectionSelectProviders = (provider) => {
+    let providerInfo = document.createElement('option')
+    providerInfo.innerHTML = `${provider.name}`
+    select = document.getElementById('fprovider')
+    select.appendChild(providerInfo)
+    
 }
 
 const resetForm = () => {

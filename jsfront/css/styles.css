@@ -31,7 +31,7 @@ ul {
 }
 
 .card-header {
-  height: 45%; 
+  height: 45px; 
 }
 
 /* Note: Add new id for login and update the height to auto */
@@ -47,6 +47,12 @@ ul {
   grid-gap: 1rem;
   margin: 2rem;
 }
+
+#fprovider {
+  width: 150px;
+  height: 30px;
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
