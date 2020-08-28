@@ -267,12 +267,15 @@ const deleteAppointment = (e, json, user) => {
 
 
 // add appointment function 
+// can get rid of strong params and use name, 
+// or iterate through 
+// if provider.name == e.target[1].value => send provider_id as data 
 
 const addAppointment = (e, user) => {
     let data = {
         date: e.target[0].value,
         note: e.target[2].value,
-        provider_id: e.target[1].value,
+        provider_id: e.target[1].value, 
         user_id: user.id
     }
 
@@ -317,7 +320,8 @@ const renderProvider = (provider) => {
 
 const collectionSelectProviders = (provider) => {
     let providerInfo = document.createElement('option')
-    providerInfo.innerHTML = `${provider.name}`
+    providerInfo.innerHTML = provider.name
+    providerInfo.value = provider.id // used in add appointment
     select = document.getElementById('fprovider')
     select.appendChild(providerInfo)
     
