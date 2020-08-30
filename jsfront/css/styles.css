@@ -12,7 +12,6 @@ ul {
 /* Note 
 */
 
-
 /* Put Cards on Grid */
 .card {
   text-align: left;
@@ -37,6 +36,11 @@ ul {
 /* Note: Add new id for login and update the height to auto */
 #collapseLogin .card {
   height:auto;
+}
+
+#collapseSignUp .card {
+  height:auto;
+  width: auto;
 }
 
 #card_collection {
