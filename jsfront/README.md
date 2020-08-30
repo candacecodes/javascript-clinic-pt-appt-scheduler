@@ -6,16 +6,11 @@ MyScheduler is a user-friendly clinic appointment app using vanilla JS with Rail
 
 Use the package manager install gems and example seeds.
 
-cd into backend, install gems, set seeds using:
-cd jsback
-bundle install
-rails db:migrate
-rails db:seed 
-rails s // sets up server 
+Cd into backend, install gems, set seeds using: cd jsback, bundle install, rails db:migrate, rails db:seed, rails s 
 
-cd into frontend, open index.html
-cd jsfront
-open index.html 
+Cd into frontend, open index.html
+Cd jsfront
+Open index.html 
 
 ## Usage 
 
@@ -31,5 +26,9 @@ You can also add an appointment
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+## Thanks 
+
+Thank you to Brandon, Lucas, Danira, Daniel, and Zana for helping me learn about front-end development. 
 
 // @candacecodes 082920 
