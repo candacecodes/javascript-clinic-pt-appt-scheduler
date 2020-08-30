@@ -26,7 +26,7 @@ Thank you to Brandon, Lucas, Danira, Daniel, and Zana for helping me learn about
 
 ## Details 
 
-Time to finish project: 8 days in length, about about 10 hours of thinking/planning, about 40-50 hours of building, coding, designing, and debugging. 
+Time to finish project: 8 days in length, about 10 hours of thinking/planning, about 40-50 hours of building, coding, designing, and debugging. 
 
 Coding experience: 12 weeks learning backend and frontend development. No prior experience. Learned Rails and JS. Will learn React and Redux soon. 
 
