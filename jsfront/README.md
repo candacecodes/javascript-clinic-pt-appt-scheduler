@@ -1,24 +1,35 @@
-# README
+## MyScheduler 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MyScheduler is a user-friendly clinic appointment app using vanilla JS with Rails backend. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Use the package manager install gems and example seeds.
 
-* System dependencies
+cd into backend, install gems, set seeds using:
+cd jsback
+bundle install
+rails db:migrate
+rails db:seed 
+rails s // sets up server 
 
-* Configuration
+cd into frontend, open index.html
+cd jsfront
+open index.html 
 
-* Database creation
+## Usage 
 
-* Database initialization
+Sign in using 'CC' 
+Healthcare providers are in the left card
+Your appointments are in the center
+If you click on the appointments, the right-hand card will populate with appointment details
+From there you can edit or delete your appointments
+You can also add an appointment 
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Deployment instructions
+Please make sure to update tests as appropriate.
 
-* ...
+// @candacecodes 082920 
