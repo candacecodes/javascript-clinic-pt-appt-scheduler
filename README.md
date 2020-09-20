@@ -22,7 +22,7 @@ Please make sure to update tests as appropriate.
 
 ## Details 
 
-Time to finish project: 8 days in length, about 10 hours of thinking/planning, about 40-50 hours of building, coding, designing, and debugging. 
+Time to finish project: 8 days 
 
 Coding experience: 12 weeks 
 
