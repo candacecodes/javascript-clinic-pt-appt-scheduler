@@ -20,10 +20,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## Thanks 
-
-Thank you to Brandon, Lucas, Danira, Daniel, and Zana for helping me learn about front-end development. 
-
 ## Details 
 
 Time to finish project: 8 days in length, about 10 hours of thinking/planning, about 40-50 hours of building, coding, designing, and debugging. 
