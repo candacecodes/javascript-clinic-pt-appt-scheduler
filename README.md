@@ -26,7 +26,7 @@ Time to finish project: 8 days
 
 Coding experience: 12 weeks 
 
-When patients aren't notified of upcoming appointments or schedule changes, patients may miss important appointments, and in a situation where even one missed appointment significantly affects the efficacy of treatment, tech could be used to help bridge communication lapses. This is an example where a simple app (made for the patient user) could be used to connect them with the details they need for their appointments and staying up to date with changes made by the clinic.
+When patients aren't notified of upcoming appointments or schedule changes, patients may miss important appointments, and in a situation where even one missed appointment significantly affects the efficacy of treatment, tech could be used to help bridge communication lapses. This is an example where a simple app (made for the patient user) could be used to connect them with the details they need for their appointments and stay up to date with changes made by the clinic.
 
 
 // @candacecodes 082920 
