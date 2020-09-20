@@ -28,8 +28,9 @@ Thank you to Brandon, Lucas, Danira, Daniel, and Zana for helping me learn about
 
 Time to finish project: 8 days in length, about 10 hours of thinking/planning, about 40-50 hours of building, coding, designing, and debugging. 
 
-Coding experience: 12 weeks learning backend and frontend development. No prior experience. Learned Rails and JS. Will learn React and Redux soon. 
+Coding experience: 12 weeks 
 
-Project motivated by: My experience in an oncology clinic showed the importance of communicating schedule changes with the patient. When patients aren't notified of upcoming appointments or schedule changes, patients may miss important appointments, and in a situation where even one missed appointment significantly affected the efficacy of treatment, tech could be used to help bridge communication lapses. This is an example where a simple app made for the pt could be used to connect them with the details they need for appointment information and staying up to date with any appointment changes which could be made by the clinic (and it wouldn't be needed to have admin try and reach out, sometimes unsuccessfully, to the pt about the appt change).
+My experience in a radiation oncology clinic showed the importance of communicating schedule changes with the patient. When patients aren't notified of upcoming appointments or schedule changes, patients may miss important appointments, and in a situation where even one missed appointment significantly affects the efficacy of treatment, tech could be used to help bridge communication lapses. This is an example where a simple app made for the pt could be used to connect them with the details they need for appointment information and staying up to date with any appointment changes which could be made by the clinic (and it wouldn't be needed to have admin try and reach out, sometimes unsuccessfully, to the pt about the appt change).
+
 
 // @candacecodes 082920 
